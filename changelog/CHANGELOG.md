@@ -2,6 +2,12 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.1 - 2026-11-05
+- Coming-soon page stripped to the essentials per Ben: logo and
+  COMING SOON only, centered both ways. Store link, explanatory
+  text and the test-site pointer removed from the front page
+  (the test site itself is unchanged at /test).
+
 ## 1.1.0 - 2026-11-05
 - Main page is now a "coming soon" placeholder: black page, the
   name and COMING SOON set in the Voltage Modular panel bitmap
