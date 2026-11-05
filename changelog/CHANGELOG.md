@@ -2,6 +2,14 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.0 - 2026-11-05
+- Main page is now a "coming soon" placeholder: black page, the
+  name and COMING SOON set in the Voltage Modular panel bitmap
+  font (the 3x5 glyph set from the module design kit, rendered
+  to PNG), a store link, and a pointer to the test site.
+- The full site (frameset + all four pages) moved to /test for
+  testing while the real front page is designed.
+
 ## 1.0.0 - 2026-11-05
 - Site launch. Hand-written HTML 4.01 frameset: left navigation
   frame + content frame, black background, Times New Roman,
