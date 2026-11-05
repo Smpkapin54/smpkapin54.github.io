@@ -1,90 +1,113 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>BenDavis.IO - test bench</title>
+<title>BenDavis.IO</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <style type="text/css">
   html, body { margin: 0; padding: 0; }
   a { text-decoration: underline; }
   .navlink { cursor: pointer; }
+  h1 { font-size: 140%; margin: 6px 0; }
+  h2 { font-size: 115%; margin: 14px 0 4px 0; }
+  p { margin: 6px 0; line-height: 1.45; }
+  .sub { font-size: 85%; }
 </style>
 <script type="text/javascript">
 var API = "https://api.github.com/repos/bendedavis/bendedavis.github.io/issues/1";
-var state = {"bg":"#000000","fg":"#cccccc","link":"#6699ff","visited":"#9966cc","accent":"#ffcc00","font":"times","layout":"frames","navWidth":180,"headline":"text","size":16,"version":1};
+var state = {"bg":"#000000","fg":"#dddddd","link":"#6699ff","visited":"#9966cc","accent":"#ffffff","font":"arial","layout":"top","navWidth":180,"headline":"bitmap","size":15,"version":4};
 var etag = null, currentPage = "main", appliedVersion = 0;
 
 var FONTS = {
   "times": "Times New Roman, Times, serif",
   "mono": "Courier New, Courier, monospace",
   "sans": "Verdana, Geneva, sans-serif",
-  "georgia": "Georgia, serif"
+  "georgia": "Georgia, serif",
+  "arial": "Arial, Helvetica, sans-serif"
 };
 
 var PAGES = {
-"main": "<h1>Notes</h1><p class='sub'>Newest first. Updated when there is something to say.</p><hr>"
-+ "<h2>November 5, 2026 - A site, finally</h2>"
-+ "<p>I have owned this domain for a while and pointed it at nothing, which is the most honest website I have ever had. This one is not much more than that, on purpose. I build things, I would rather be building things than maintaining a website, so the website is a text file with delusions of grandeur.</p>"
-+ "<p>Short version of what is going on: there are thirteen modules live in the Voltage Modular store under BenDavis.IO, more in the approval queue, a sequencer family in the works that I care about more than is probably reasonable, and a plugin called Tern that just went out to friends as a beta. Records are on the music page. Hardware is on the about page.</p>"
-+ "<p>If you bought a module and something is wrong with it, tell me. I would rather fix it than not know.</p><hr>"
-+ "<h2>What this site will not do</h2>"
-+ "<p>No newsletter signup. No popups. No autoplay anything. If I write something new it will just be here, dated, like this. Check back the way people used to: whenever you remember to.</p><hr>"
-+ "<p class='sub'>- Ben</p>",
-"modules": "<h1>Modules</h1><p class='sub'>For Voltage Modular. Sold through the <a href='https://store.cherryaudio.com/manufacturers/ben-davis'>Cherry Audio store</a>. Every module has a 5-day demo. Use it.</p><hr>"
-+ "<h2>Live now - Series One, $5 each</h2>"
-+ "<p>KICK - BOOL - RECT - QDIV - BELL - BONG - FOLD - ORBIT - PLATE - TIC - PRE - PARA - VIBE</p>"
-+ "<p>Bundles: the Complete bundle ($39), Logic &amp; Utility ($14), Drums, and FX. The free Complete Bundle from the early days stays free.</p><hr>"
-+ "<h2>How I work</h2>"
-+ "<p>Nothing textbook. Every module here started as an idea I could not find in the store already, and each one gets played by me before it is submitted. If a module and its description disagree, the module is wrong and I will fix it.</p>"
-+ "<p>More are coming. There is a list. The list is longer than the catalog and that is the correct ratio.</p><hr>"
-+ "<p class='sub'>Questions about a module: the about page has my email.</p>",
-"music": "<h1>Music</h1><p class='sub'>There are other Ben Davises. Some of them play cello. These ones are mine.</p><hr>"
-+ "<h2>Cycles</h2><p>(2019, Detroit Underground) Five tracks, made with TidalCycles. Generative patterns, chopped drums, the record that explains most of what came after it. On Bandcamp and streaming.</p>"
-+ "<h2>Mures EP</h2><p>(2024, Clavitronics) Techno. The hardware years leaking into the DAW years.</p>"
-+ "<h2>Verified</h2><p>(2025) Self-released. Written, produced, and mixed the slow way.</p>"
-+ "<h2>Verified (DJ Manny Remix)</h2><p>(2026) DJ Manny's take on the title track.</p><hr>"
-+ "<p class='sub'>New music is the whole point of the modules, not the other way around. When there is a new record it will be at the top of this page.</p>",
-"about": "<h1>About</h1><hr>"
-+ "<p>I'm Ben Davis. I design synthesizer modules in Fort Wayne, Indiana.</p>"
-+ "<p>The short history: I came up through Eurorack hardware. The sequencer ideas people know as the Varigate and the Voltage Block came out of my work at Malekko Heavy Industry. I designed the original &#181;Braids and kept my name off it. At 4ms I came up with the META module concept and wrote its VCV code. Those companies told those stories their way, or didn't. This site is mine, so here it is plainly.</p>"
-+ "<p>These days the work is BenDavis.IO: Voltage Modular modules, the Tern plugin, and hardware of my own, including a guitar front-end pedal I have been refining for longer than I will admit in writing.</p>"
-+ "<p>The through-line, if there is one: ideas I originated, built under my own name this time.</p><hr>"
-+ "<h2>Contact</h2><p>Email is the way. If you are writing about a module, put the module's name in the subject line and tell me what it did. If you are writing about anything else, that is fine too.</p><hr>"
-+ "<p class='sub'>This page was written by hand, in a text editor, like the rest of the site. The HTML is not impressive and neither is the claim.</p>"
+"main": "<h1>Welcome to BenDavis.IO</h1>"
++ "<p>BenDavis.IO designs and builds software instruments and effects for modular synthesis, and hardware for guitar. Our current product line includes thirteen modules for Cherry Audio Voltage Modular, with additional products in development.</p>"
++ "<h2>Products</h2>"
++ "<p><b>Voltage Modular modules</b> - Series One instruments, utilities and effects, available individually and in bundles through the Cherry Audio store. Every module includes a five-day demonstration period.</p>"
++ "<p><b>Tern</b> - A sample-based software instrument for Windows and Linux, currently in beta testing ahead of its production release.</p>"
++ "<p><b>First Contact</b> - A high-impedance guitar front-end and limiter pedal, currently in development.</p>"
++ "<h2>Latest News</h2>"
++ "<p><b>November 5, 2026</b> - Tern 0.3.0 beta released to testers for Windows and Linux. Thirteen Series One modules are now available in the Cherry Audio store.</p>"
++ "<p>Product information is available on the Modules and Music pages. Company background is on the About page.</p>",
+"modules": "<h1>Modules</h1>"
++ "<p class='sub'>For Cherry Audio Voltage Modular. Available through the <a href='https://store.cherryaudio.com/manufacturers/ben-davis'>Cherry Audio store</a>. Every module includes a five-day demonstration.</p><hr>"
++ "<h2>Series One - $5 each</h2>"
++ "<p>KICK &middot; BOOL &middot; RECT &middot; QDIV &middot; BELL &middot; BONG &middot; FOLD &middot; ORBIT &middot; PLATE &middot; TIC &middot; PRE &middot; PARA &middot; VIBE</p>"
++ "<h2>Bundles</h2>"
++ "<p>Complete Bundle - $39<br>Logic &amp; Utility - $14<br>Drums - $10.50<br>FX - $21</p>"
++ "<h2>Engineering</h2>"
++ "<p>Every BenDavis.IO module is designed, built and play-tested in-house before submission. Designs are original; no module is a re-skin of a textbook circuit or algorithm. Support questions are answered by the designer.</p>",
+"music": "<h1>Music</h1>"
++ "<p class='sub'>Recordings by Ben Davis, founder of BenDavis.IO.</p><hr>"
++ "<h2>Cycles</h2><p>2019 &middot; Detroit Underground. Five tracks composed with TidalCycles: generative patterns and detailed drum programming.</p>"
++ "<h2>Mures EP</h2><p>2024 &middot; Clavitronics. Techno.</p>"
++ "<h2>Verified</h2><p>2025 &middot; Self-released.</p>"
++ "<h2>Verified (DJ Manny Remix)</h2><p>2026 &middot; Self-released.</p>",
+"about": "<h1>About BenDavis.IO</h1><hr>"
++ "<p>BenDavis.IO is the design practice of Ben Davis, based in Fort Wayne, Indiana. The company builds original instruments: software modules for Voltage Modular, the Tern software instrument, and guitar hardware.</p>"
++ "<p>Ben's design work reaches back to Eurorack hardware. The sequencer concepts behind the Varigate series and the Voltage Block were developed during his time at Malekko Heavy Industry. He designed the original &#181;Braids oscillator adaptation, and at 4ms Company he originated the META module concept and wrote its VCV Rack code.</p>"
++ "<p>BenDavis.IO exists to build that catalogue under its own name: original designs, engineered and supported by their designer.</p>"
++ "<h2>Contact</h2>"
++ "<p>For product support, please write by email and include the product name in the subject line. Support is handled by the designer.</p>"
 };
 
-function navHTML() {
+function mastheadHTML() {
+  var word = state.headline === "bitmap"
+    ? "<img src='../headline.png' width='360' height='56' alt='BENDAVIS.IO'>"
+    : "<span style='font-size:170%;font-weight:bold;'>BENDAVIS.IO</span>";
+  var links = [["main","Home"],["modules","Modules"],["music","Music"],["about","About"]];
+  var nav = "";
+  for (var i = 0; i < links.length; i++) {
+    if (i > 0) { nav += " | "; }
+    nav += "<a class='navlink' onclick=\"go('" + links[i][0] + "')\">" + links[i][1] + "</a>";
+  }
+  nav += " | <a href='https://store.cherryaudio.com/manufacturers/ben-davis'>Store</a>";
+  return "<table border='0' cellpadding='0' cellspacing='0' width='100%'><tr><td style='padding:14px 16px 8px 16px;'>"
+    + word
+    + "<br><span style='font-size:85%;'>Instruments &amp; Effects &middot; Fort Wayne, Indiana</span>"
+    + "</td></tr>"
+    + "<tr><td style='padding:6px 16px;border-top:1px solid #ffffff;border-bottom:1px solid #ffffff;'>" + nav + "</td></tr></table>";
+}
+
+function sideNavHTML() {
   var word = state.headline === "bitmap"
     ? "<img src='../headline.png' width='270' height='42' alt='BENDAVIS.IO'>"
     : "<span style='font-size:150%;font-weight:bold;'>BENDAVIS.IO</span>";
+  var links = [["main","Home"],["modules","Modules"],["music","Music"],["about","About"]];
   var h = word + "<br><span style='font-size:80%;'>Fort Wayne, Indiana</span><hr>";
-  var links = [["main","Home / Blog"],["modules","Modules"],["music","Music"],["about","About"]];
   for (var i = 0; i < links.length; i++) {
     h += "<a class='navlink' onclick=\"go('" + links[i][0] + "')\">" + links[i][1] + "</a><br><br>";
   }
-  h += "<hr><span style='font-size:80%;'>Voltage Modular store:<br>"
-     + "<a href='https://store.cherryaudio.com/manufacturers/ben-davis'>BenDavis.IO on Cherry Audio</a></span>"
-     + "<br><br><span style='font-size:80%;'>Best viewed at<br>800x600.<br>It also works<br>at every other size.<br><br>No cookies.<br>No tracking.<br>Nothing to accept.</span>";
+  h += "<hr><span style='font-size:80%;'>Products are available through the <a href='https://store.cherryaudio.com/manufacturers/ben-davis'>Cherry Audio store</a>.</span>";
   return h;
+}
+
+function footerHTML() {
+  return "<div style='padding:10px 16px;border-top:1px solid #ffffff;font-size:80%;'>&copy; 2026 BenDavis.IO &middot; Fort Wayne, Indiana &middot; All rights reserved.</div>";
 }
 
 function render() {
   var s = state;
   document.body.style.backgroundColor = s.bg;
   document.body.style.color = s.fg;
-  document.body.style.fontFamily = FONTS[s.font] || FONTS["times"];
-  document.body.style.fontSize = (s.size || 16) + "px";
-  var links = document.getElementsByTagName("a");
+  document.body.style.fontFamily = FONTS[s.font] || FONTS["arial"];
+  document.body.style.fontSize = (s.size || 15) + "px";
   var root = document.getElementById("root");
-  var content = "<div style='padding:12px;'>" + PAGES[currentPage] + "</div>";
-  var nav = "<div style='padding:12px;'>" + navHTML() + "</div>";
+  var content = "<div style='padding:14px 16px;max-width:760px;'>" + PAGES[currentPage] + "</div>";
   if (s.layout === "top") {
-    root.innerHTML = nav + "<hr>" + content;
+    root.innerHTML = mastheadHTML() + content + footerHTML();
   } else if (s.layout === "single") {
     root.innerHTML = content;
   } else {
     root.innerHTML = "<table border='0' cellpadding='0' cellspacing='0' width='100%'><tr>"
-      + "<td valign='top' width='" + (s.navWidth || 180) + "'>" + nav + "</td>"
-      + "<td valign='top'>" + content + "</td></tr></table>";
+      + "<td valign='top' width='" + (s.navWidth || 180) + "'><div style='padding:12px;'>" + sideNavHTML() + "</div></td>"
+      + "<td valign='top'>" + content + "</td></tr></table>" + footerHTML();
   }
   var as = root.getElementsByTagName("a");
   for (var i = 0; i < as.length; i++) { as[i].style.color = s.link; }
