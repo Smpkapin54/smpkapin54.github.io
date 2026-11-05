@@ -2,6 +2,11 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.3 - 2026-11-05
+- Front page vertical centering made real (full-height page +
+  middle-aligned cell); the logo and COMING SOON now sit at the
+  true center of the window, both ways.
+
 ## 1.1.2 - 2026-11-05
 - COMING SOON re-rendered per Ben: no red - the letters are now
   hollow outlines in white (panel-font glyphs drawn as outlines).
