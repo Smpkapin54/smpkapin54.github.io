@@ -2,6 +2,12 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.6 - 2026-11-05
+- COMING SOON re-rendered per Ben's exact spec: the SAME
+  letterforms and size as the original red render (kit font,
+  filled geometry) - now white and hollow, the letterforms'
+  silhouette outline only, no cell grid.
+
 ## 1.1.5 - 2026-11-05
 - COMING SOON: the Argon contour lettering is out (Ben's call -
   "original was better"). Restored the panel kit-font white
