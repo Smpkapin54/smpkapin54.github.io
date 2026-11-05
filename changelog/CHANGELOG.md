@@ -2,6 +2,15 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.2.0 - 2026-11-05
+- The /test page is now DYNAMIC (Ben's architecture: static
+  frontend, dynamic backend). The page itself is static HTML on
+  GitHub Pages, but it polls a live style state (held in repo
+  issue #1, of all places) every 3 seconds and re-renders -
+  colors, font, layout, headline treatment - so the style can be
+  steered live with hotter/colder feedback while Ben watches.
+  When a style wins, it gets baked into the static pages.
+
 ## 1.1.6 - 2026-11-05
 - COMING SOON re-rendered per Ben's exact spec: the SAME
   letterforms and size as the original red render (kit font,
