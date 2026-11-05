@@ -2,6 +2,10 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.2 - 2026-11-05
+- COMING SOON re-rendered per Ben: no red - the letters are now
+  hollow outlines in white (panel-font glyphs drawn as outlines).
+
 ## 1.1.1 - 2026-11-05
 - Coming-soon page stripped to the essentials per Ben: logo and
   COMING SOON only, centered both ways. Store link, explanatory
