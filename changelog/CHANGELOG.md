@@ -2,6 +2,13 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.4 - 2026-11-05
+- COMING SOON outline redesigned by Argon per Ben; white outline
+  only. The hollow-square render is replaced by Argon's engraved
+  double-rule lettering: a 1 px pure-white outer contour with a
+  1 px steel-gray inner calibration rule, hollow throughout,
+  392x64 (cap height exactly two-thirds of the logo's).
+
 ## 1.1.3 - 2026-11-05
 - Front page vertical centering made real (full-height page +
   middle-aligned cell); the logo and COMING SOON now sit at the
