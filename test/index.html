@@ -1,18 +1,128 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>BenDavis.IO</title>
+<title>BenDavis.IO - test bench</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+  html, body { margin: 0; padding: 0; }
+  a { text-decoration: underline; }
+  .navlink { cursor: pointer; }
+</style>
+<script type="text/javascript">
+var API = "https://api.github.com/repos/bendedavis/bendedavis.github.io/issues/1";
+var state = {"bg":"#000000","fg":"#cccccc","link":"#6699ff","visited":"#9966cc","accent":"#ffcc00","font":"times","layout":"frames","navWidth":180,"headline":"text","size":16,"version":1};
+var etag = null, currentPage = "main", appliedVersion = 0;
+
+var FONTS = {
+  "times": "Times New Roman, Times, serif",
+  "mono": "Courier New, Courier, monospace",
+  "sans": "Verdana, Geneva, sans-serif",
+  "georgia": "Georgia, serif"
+};
+
+var PAGES = {
+"main": "<h1>Notes</h1><p class='sub'>Newest first. Updated when there is something to say.</p><hr>"
++ "<h2>November 5, 2026 - A site, finally</h2>"
++ "<p>I have owned this domain for a while and pointed it at nothing, which is the most honest website I have ever had. This one is not much more than that, on purpose. I build things, I would rather be building things than maintaining a website, so the website is a text file with delusions of grandeur.</p>"
++ "<p>Short version of what is going on: there are thirteen modules live in the Voltage Modular store under BenDavis.IO, more in the approval queue, a sequencer family in the works that I care about more than is probably reasonable, and a plugin called Tern that just went out to friends as a beta. Records are on the music page. Hardware is on the about page.</p>"
++ "<p>If you bought a module and something is wrong with it, tell me. I would rather fix it than not know.</p><hr>"
++ "<h2>What this site will not do</h2>"
++ "<p>No newsletter signup. No popups. No autoplay anything. If I write something new it will just be here, dated, like this. Check back the way people used to: whenever you remember to.</p><hr>"
++ "<p class='sub'>- Ben</p>",
+"modules": "<h1>Modules</h1><p class='sub'>For Voltage Modular. Sold through the <a href='https://store.cherryaudio.com/manufacturers/ben-davis'>Cherry Audio store</a>. Every module has a 5-day demo. Use it.</p><hr>"
++ "<h2>Live now - Series One, $5 each</h2>"
++ "<p>KICK - BOOL - RECT - QDIV - BELL - BONG - FOLD - ORBIT - PLATE - TIC - PRE - PARA - VIBE</p>"
++ "<p>Bundles: the Complete bundle ($39), Logic &amp; Utility ($14), Drums, and FX. The free Complete Bundle from the early days stays free.</p><hr>"
++ "<h2>How I work</h2>"
++ "<p>Nothing textbook. Every module here started as an idea I could not find in the store already, and each one gets played by me before it is submitted. If a module and its description disagree, the module is wrong and I will fix it.</p>"
++ "<p>More are coming. There is a list. The list is longer than the catalog and that is the correct ratio.</p><hr>"
++ "<p class='sub'>Questions about a module: the about page has my email.</p>",
+"music": "<h1>Music</h1><p class='sub'>There are other Ben Davises. Some of them play cello. These ones are mine.</p><hr>"
++ "<h2>Cycles</h2><p>(2019, Detroit Underground) Five tracks, made with TidalCycles. Generative patterns, chopped drums, the record that explains most of what came after it. On Bandcamp and streaming.</p>"
++ "<h2>Mures EP</h2><p>(2024, Clavitronics) Techno. The hardware years leaking into the DAW years.</p>"
++ "<h2>Verified</h2><p>(2025) Self-released. Written, produced, and mixed the slow way.</p>"
++ "<h2>Verified (DJ Manny Remix)</h2><p>(2026) DJ Manny's take on the title track.</p><hr>"
++ "<p class='sub'>New music is the whole point of the modules, not the other way around. When there is a new record it will be at the top of this page.</p>",
+"about": "<h1>About</h1><hr>"
++ "<p>I'm Ben Davis. I design synthesizer modules in Fort Wayne, Indiana.</p>"
++ "<p>The short history: I came up through Eurorack hardware. The sequencer ideas people know as the Varigate and the Voltage Block came out of my work at Malekko Heavy Industry. I designed the original &#181;Braids and kept my name off it. At 4ms I came up with the META module concept and wrote its VCV code. Those companies told those stories their way, or didn't. This site is mine, so here it is plainly.</p>"
++ "<p>These days the work is BenDavis.IO: Voltage Modular modules, the Tern plugin, and hardware of my own, including a guitar front-end pedal I have been refining for longer than I will admit in writing.</p>"
++ "<p>The through-line, if there is one: ideas I originated, built under my own name this time.</p><hr>"
++ "<h2>Contact</h2><p>Email is the way. If you are writing about a module, put the module's name in the subject line and tell me what it did. If you are writing about anything else, that is fine too.</p><hr>"
++ "<p class='sub'>This page was written by hand, in a text editor, like the rest of the site. The HTML is not impressive and neither is the claim.</p>"
+};
+
+function navHTML() {
+  var word = state.headline === "bitmap"
+    ? "<img src='../headline.png' width='270' height='42' alt='BENDAVIS.IO'>"
+    : "<span style='font-size:150%;font-weight:bold;'>BENDAVIS.IO</span>";
+  var h = word + "<br><span style='font-size:80%;'>Fort Wayne, Indiana</span><hr>";
+  var links = [["main","Home / Blog"],["modules","Modules"],["music","Music"],["about","About"]];
+  for (var i = 0; i < links.length; i++) {
+    h += "<a class='navlink' onclick=\"go('" + links[i][0] + "')\">" + links[i][1] + "</a><br><br>";
+  }
+  h += "<hr><span style='font-size:80%;'>Voltage Modular store:<br>"
+     + "<a href='https://store.cherryaudio.com/manufacturers/ben-davis'>BenDavis.IO on Cherry Audio</a></span>"
+     + "<br><br><span style='font-size:80%;'>Best viewed at<br>800x600.<br>It also works<br>at every other size.<br><br>No cookies.<br>No tracking.<br>Nothing to accept.</span>";
+  return h;
+}
+
+function render() {
+  var s = state;
+  document.body.style.backgroundColor = s.bg;
+  document.body.style.color = s.fg;
+  document.body.style.fontFamily = FONTS[s.font] || FONTS["times"];
+  document.body.style.fontSize = (s.size || 16) + "px";
+  var links = document.getElementsByTagName("a");
+  var root = document.getElementById("root");
+  var content = "<div style='padding:12px;'>" + PAGES[currentPage] + "</div>";
+  var nav = "<div style='padding:12px;'>" + navHTML() + "</div>";
+  if (s.layout === "top") {
+    root.innerHTML = nav + "<hr>" + content;
+  } else if (s.layout === "single") {
+    root.innerHTML = content;
+  } else {
+    root.innerHTML = "<table border='0' cellpadding='0' cellspacing='0' width='100%'><tr>"
+      + "<td valign='top' width='" + (s.navWidth || 180) + "'>" + nav + "</td>"
+      + "<td valign='top'>" + content + "</td></tr></table>";
+  }
+  var as = root.getElementsByTagName("a");
+  for (var i = 0; i < as.length; i++) { as[i].style.color = s.link; }
+  var st = document.getElementById("stylestate");
+  if (st) { st.innerHTML = "style v" + s.version + " - live bench"; }
+}
+
+function go(p) { currentPage = p; render(); }
+
+function poll() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", API, true);
+  if (etag) { xhr.setRequestHeader("If-None-Match", etag); }
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        etag = xhr.getResponseHeader("ETag");
+        try {
+          var issue = JSON.parse(xhr.responseText);
+          var m = /```json\s*([\s\S]*?)```/.exec(issue.body || "");
+          if (m) {
+            var next = JSON.parse(m[1]);
+            if (next.version !== appliedVersion) {
+              state = next; appliedVersion = next.version; render();
+            }
+          }
+        } catch (e) { }
+      }
+      setTimeout(poll, 3000);
+    }
+  };
+  xhr.send(null);
+}
+</script>
 </head>
-<frameset cols="180,*" frameborder="1" border="1" framespacing="0">
-  <frame src="nav.html" name="nav" scrolling="auto" marginwidth="8" marginheight="8">
-  <frame src="main.html" name="main" scrolling="auto" marginwidth="12" marginheight="8">
-  <noframes>
-  <body bgcolor="#000000" text="#cccccc">
-  <p>This site uses frames. Your browser does not. The whole thing is just
-  text anyway, so here is the short version: I make Eurorack modules,
-  Voltage Modular plugins, and records. Write me if you want the long one.</p>
-  </body>
-  </noframes>
-</frameset>
+<body>
+<div id="root"></div>
+<div id="stylestate" style="position:fixed;right:6px;bottom:4px;font-size:11px;opacity:0.55;"></div>
+<script type="text/javascript">render(); poll();</script>
+</body>
 </html>
