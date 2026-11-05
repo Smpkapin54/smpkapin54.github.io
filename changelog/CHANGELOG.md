@@ -2,6 +2,11 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.1.5 - 2026-11-05
+- COMING SOON: the Argon contour lettering is out (Ben's call -
+  "original was better"). Restored the panel kit-font white
+  outline render from 1.1.2.
+
 ## 1.1.4 - 2026-11-05
 - COMING SOON outline redesigned by Argon per Ben; white outline
   only. The hollow-square render is replaced by Argon's engraved
