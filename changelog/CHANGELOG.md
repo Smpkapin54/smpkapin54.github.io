@@ -2,6 +2,15 @@
 
 Newest first. Every change to the site gets an entry here.
 
+## 1.2.1 - 2026-11-05
+- Test page REBUILT to Ben's corrected brief: a professional
+  company page from the 90s, not a personal blog. Masthead with
+  the panel-font wordmark and a ruled navigation bar, company
+  voice throughout (products, catalog-style module listing,
+  company background), copyright footer. The personal-blog
+  material and jokes are out. Style v4: Arial, lighter body
+  text. The live style backend is unchanged.
+
 ## 1.2.0 - 2026-11-05
 - The /test page is now DYNAMIC (Ben's architecture: static
   frontend, dynamic backend). The page itself is static HTML on
